@@ -180,7 +180,7 @@ app.put("/users/:userID/notes/:id", verifyNoteContent, (req: Request, res: Respo
     });
 });
 
-app.put("/users/:userID/notes/:id", (req: Request, res: Response) => {
+app.delete("/users/:userID/notes/:id", (req: Request, res: Response) => {
     const { userID, id }: { userID?: string, id?: string } = req.params;
 
     const user = listOfUsers.find((f) => f.id === userID);
