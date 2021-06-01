@@ -9,13 +9,14 @@ import userAlreadyExists from './middleware/md-UserAlreadyExists';
 import verifyUserName from './middleware/md-username';
 import verifyEqualPasswords from './middleware/md-verifyEqualPasswords';
 import verifyNoteContent from './middleware/md-verifyNoteContent';
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log('Servidor Rodando')
-});
+app.listen(process.env.PORT || 3000);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('API')
